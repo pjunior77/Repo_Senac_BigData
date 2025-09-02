@@ -12,7 +12,8 @@ nomeProduto = []
 valorProduto = []
 
 #Para cada produto pega as informações
-for i in range(0, qtdeProdutos, 1):
+#for i in range(0, qtdeProdutos, 1):
+for i in range(qtdeProdutos):
     
     nome = input(f'Qual o nome do produto {i+1}? ').strip()
     nomeProduto.append(nome)
@@ -27,6 +28,7 @@ for i in range(0, qtdeProdutos, 1):
 
 #Imprime os resultados
 print('\n----- Exibindo a lista de produtos -----')
-for i in range(0, qtdeProdutos, 1):
+#for i in range(0, qtdeProdutos, 1):
+for i in range(qtdeProdutos):
     print(f'Nome do produto {i+1}: {nomeProduto[i]} - Valor do produto {i+1}: R$ {valorProduto[i]:.2f}')
 print('--- FIM ---')

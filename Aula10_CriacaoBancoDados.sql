@@ -216,9 +216,9 @@ GROUP BY estado;
 SELECT cliente,
 SUM(quantidade * valor_unitario) AS total_cliente
 FROM vendas
-WHERE categoria = 'Informática'
+WHERE categoria IN ('Informática','Acessórios')
 GROUP BY cliente
-HAVING total_cliente > 5000 AND total_cliente < 50000;
+HAVING total_cliente > 5000 AND total_cliente < 150000;
 
 SELECT categoria,
 AVG(quantidade * valor_unitario) AS media_vendida

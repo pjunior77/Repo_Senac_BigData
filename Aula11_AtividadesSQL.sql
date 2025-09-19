@@ -90,3 +90,18 @@ GROUP BY categoria;
 ################################################################
 # Atividade 04
 ################################################################
+SELECT produto AS nome_do_produto, categoria, valor_unitario
+FROM produtos
+WHERE valor_unitario > 1000;
+
+
+
+################################################################
+# Atividade 05
+################################################################
+SELECT ped.id AS id_pedido, pro.produto AS nome_do_produto, pro.valor_unitario, cli.nome AS nome_do_cliente
+FROM pedidos ped
+JOIN produtos pro ON ped.produto_id = pro.id
+JOIN clientes cli ON ped.cliente_id = cli.id
+WHERE PRO.valor_unitario > 2000
+

@@ -57,13 +57,18 @@ SELECT * FROM tb_vendas;
 
 
 ##############################################################
-# Carregar asrquivos CSV nas tabelas
+# Carregar arquivos CSV nas tabelas
 ##############################################################
-/* Permissão para acessar arquivos locais no servidor de Banco de Dados */
-SET GLOBAL local_infile = 1;
+SET GLOBAL local_infile = 1;				#Permissão para acessar arquivos locais no servidor de Banco de Dados
+SHOW VARIABLES LIKE 'secure_file_priv';		#Para verificar o local da pasta onde se pode carregar os arquivos
+/*
+Depois tem que ir no arquivo C:\ProgramData\MySQL\MySQL Server 8.0\my.ini
+e trocar o local do arquivo na variável "secure_file_priv"
+*/
 
 /* Carregando os dados do arquivo CSV para a tabela tb_clientes */
-LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_clientes.csv'
+#LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_clientes.csv'
+LOAD DATA INFILE 'C:/PauloFrederico/PosGraduacao/SENAC_BigData/Repo_Senac_BigData/tb_clientes.csv'
 INTO TABLE tb_clientes
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
@@ -77,7 +82,8 @@ DELETE FROM tb_clientes WHERE id < 1000;
 */
 
 /* Carregando os dados do arquivo CSV para a tabela tb_produtos */
-LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_produtos.csv'
+#LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_produtos.csv'
+LOAD DATA INFILE 'C:/PauloFrederico/PosGraduacao/SENAC_BigData/Repo_Senac_BigData/tb_produtos.csv'
 INTO TABLE tb_produtos
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
@@ -92,7 +98,8 @@ DROP TABLE tb_clientes;
 */
 
 /* Carregando os dados do arquivo CSV para a tabela tb_vendas */
-LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_vendas.csv'
+#LOAD DATA INFILE 'C:/Users/paulo.frederico/Documents/Repo_Senac_BigData/tb_vendas.csv'
+LOAD DATA INFILE 'C:/PauloFrederico/PosGraduacao/SENAC_BigData/Repo_Senac_BigData/tb_vendas.csv'
 INTO TABLE tb_vendas
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
